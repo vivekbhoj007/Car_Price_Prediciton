@@ -38,7 +38,7 @@ def predict():
             return("Sorry you can't sell this year")
         
         # price
-        Present_Price = int(request.form['price'])
+        Present_Price = float(request.form['price'])
         print('showroom price=',Present_Price)
         
         
