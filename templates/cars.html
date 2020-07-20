@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>live car price Webapp</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <style>
+        body {
+            background-color: rgb(77, 96, 105);
+        }
+
+        h1 {
+            color: whitesmoke;
+            margin-left: 20px;
+        }
+
+        h4 {
+            color: whitesmoke;
+            margin-left: 20px;
+        }
+
+        p {
+            color: whitesmoke;
+            margin-top: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            border-style: none;
+            padding: 0;
+
+        }
+
+        label {
+            padding: 14px;
+            color: white;
+            margin-left: 20px;
+        }
+
+        .col-sm-8 {
+            margin-left: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <center>
+            <h1>Live Car Price Predictor</h1>
+            <p>Enter the required fields and check your Car Price</p>
+        </center>
+        <div class="row">
+            <div class="col-sm-2">
+                <!-- <h3>Column 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p> -->
+            </div>
+            <div class="col-sm-8 text-center">
+                <form action="{{ url_for ('predict')}}" method="POST">
+
+                <!-- <form action="{{ url_for ('predict')}}" method="POST"> -->
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label for="year">Model Year</label>
+                            <label for="price">Buy Price</label>
+                            <label for="kms_Driven">Kms Driven</label>
+                            <label for="owner">Ownership</label>
+                            <label for="fuel">Fuel Type</label>
+                            <label for="sell">Seller Type</label>
+                            <label for="trans">Transmission</label>
+
+                        </div>
+                        <div class=" col-sm-5">
+                            <input class="form-control" id="year" type="text"
+                                placeholder="Enter the manufacturing year" name='year'><br>
+                            <input class="form-control" name="price" type="text"
+                                placeholder="Enter the showroom price(in lakhs)"><br>
+                            <input class="form-control" name="kms_Driven" type="text"
+                                placeholder="Enter the km driven"><br>
+                            <input class="form-control" name="owner" type="text"
+                                placeholder="Enter the ownership(1,2,3)"><br>
+                            <select class="form-control" name="fuel">
+                                <option value="petrol">Petrol</option>
+                                <option value="diesel">Diesel</option>
+                                <option value="cng">CNG</option>
+                            </select><br>
+                            <select class="form-control" name="sell">
+                                <option value="individual">Individual</option>
+                                <option value="dealer">Dealer</option>
+                            </select><br>
+                            <select class="form-control" name="trans">
+                                <option vlaue="automatic">Automatic</option>
+                                <option value="manual">Manual</option>
+                            </select>
+                            <!-- <input class="form-control" id="fuel" type="text" placeholder="select fuel "><br>
+                    <input class="form-control" id="seller" type="text" placeholder="Enter the value"><br>
+                    <input class="form-control" id="trans" type="text" placeholder="Enter the value"><br> -->
+                        </div>
+                    </div>
+
+
+
+                    <button class="btn btn-success" type="submit">
+                        <span class="glyphicon glyphicon-search">Check Status</span>
+                    </button>
+                </form>
+                <br>
+                <div class="alert alert-success">
+                    <strong>Success!</strong><h4>{{prediction_text}}</h4>
+                </div>
+            </div>
+            <div class="col-sm-2">
+
+                <!-- <h3>Column 3</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p> -->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
